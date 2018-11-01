@@ -4,7 +4,7 @@ import (
 	"net/http"
 )
 
-type IController interface {
+type IResourceController interface {
 	Index(*Context)
 	Create(*Context)
 	Update(*Context)

@@ -7,7 +7,7 @@ import (
 )
 
 type Router struct {
-	mux.Router
+	*mux.Router
 }
 
 type Context struct {
@@ -16,33 +16,39 @@ type Context struct {
 }
 
 func NewRouter() *Router {
-	return &Router{}
+	return &Router{&mux.Router{}}
 }
 
 func (r *Router) Get(path string, h func(*Context)) {
-	r.MakeRequest("GET", path, h)
+	r.makeRequest("GET", path, h)
 }
 
 func (r *Router) Post(path string, h func(*Context)) {
-	r.MakeRequest("POST", path, h)
+	r.makeRequest("POST", path, h)
 }
 
 func (r *Router) Put(path string, h func(*Context)) {
-	r.MakeRequest("PUT", path, h)
+	r.makeRequest("PUT", path, h)
 }
 
 func (r *Router) Delete(path string, h func(*Context)) {
-	r.MakeRequest("DELETE", path, h)
+	r.makeRequest("DELETE", path, h)
 }
 
-func (r *Router) Resource(path string, c IController) {
+func (r *Router) Resource(path string, c IResourceController) {
 	r.Get(path, c.Index)
 	r.Post(path, c.Create)
 	r.Put(path, c.Update)
 	r.Delete(path, c.Delete)
 }
 
-func (r *Router) MakeRequest(
+func (r *Router) Group(prefix string, closure func(r *Router)) {
+	prefixed := r.PathPrefix(prefix).Subrouter()
+	router := &Router{prefixed}
+	closure(router)
+}
+
+func (r *Router) makeRequest(
 	method string,
 	path string,
 	handler func(*Context),

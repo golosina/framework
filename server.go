@@ -17,5 +17,10 @@ func main() {
 
 	app.Router.Resource("/users", &controllers.UserController{})
 
+	app.Router.Group("/api", func(r *framework.Router) {
+		c := &controllers.UserController{}
+		r.Get("/users", c.Index)
+	})
+
 	app.Start()
 }

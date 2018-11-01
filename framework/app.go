@@ -13,7 +13,7 @@ type App struct {
 
 func New() *App {
 
-	LoadEnv()
+	loadEnv()
 
 	r := NewRouter()
 	return &App{r}
@@ -25,7 +25,7 @@ func (a *App) Start() {
 	log.Fatal(http.ListenAndServe(":8000", a.Router))
 }
 
-func LoadEnv() {
+func loadEnv() {
 	err := godotenv.Load()
 
 	if err != nil {
