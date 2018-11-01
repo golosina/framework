@@ -101,6 +101,12 @@ func (c *ApplicationController) Delete(ctx *framework.Context) {
 
 	var application models.Application
 	ctx.Database.First(&application, params["id"])
+
+	if application.ID == 0 {
+		ctx.Response.JSON(&ApplicationResponse{Success: false, Message: "Application doesn't exist"})
+		return
+	}
+
 	ctx.Database.Delete(&application)
 
 	ctx.Response.JSON(&ApplicationResponse{Success: true})
