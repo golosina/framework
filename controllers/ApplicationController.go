@@ -78,9 +78,14 @@ func (c *ApplicationController) Update(ctx *framework.Context) {
 	}
 
 	var application models.Application
-	ctx.Database.First(&application, params["id"])
-	ctx.Database.Model(&application).Update("name", params["name"])
+	ctx.Database.Debug().First(&application, params["id"])
 
+	if application.ID == 0 {
+		ctx.Response.JSON(&ApplicationResponse{Success: false, Message: "Application doesn't exist"})
+		return
+	}
+
+	ctx.Database.Debug().Model(&application).Update("name", params["name"])
 	ctx.Response.JSON(&ApplicationResponse{Success: true, Application: &application})
 }
 
