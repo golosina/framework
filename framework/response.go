@@ -13,7 +13,7 @@ func (res *Response) String(s string) {
 	res.Write([]byte(s))
 }
 
-func (res *Response) Json(el interface{}) {
+func (res *Response) JSON(el interface{}) {
 	js, err := json.Marshal(el)
 	if err != nil {
 		res.String("Boooo")

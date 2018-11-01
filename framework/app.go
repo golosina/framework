@@ -14,15 +14,15 @@ type App struct {
 func New() *App {
 
 	loadEnv()
-
 	r := NewRouter()
+
 	return &App{r}
 }
 
 func (a *App) Start() {
 	// Bind to a port and pass our router in
 	log.Println("Server listening at localhost:8000")
-	log.Fatal(http.ListenAndServe(":8000", a.Router))
+	log.Fatal(http.ListenAndServe("localhost:8000", a.Router))
 }
 
 func loadEnv() {
