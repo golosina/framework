@@ -16,7 +16,13 @@ type ApplicationResponse struct {
 }
 
 func (c *ApplicationController) Index(ctx *framework.Context) {
-	ctx.Response.String("user update")
+	var applications []*models.Application
+	ctx.Database.Debug().Find(&applications)
+
+	ctx.Response.JSON(&ApplicationResponse{
+		Success:      true,
+		Applications: applications,
+	})
 }
 
 func (c *ApplicationController) Show(ctx *framework.Context) {
