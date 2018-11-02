@@ -1,4 +1,4 @@
-# Golosina
+# Golosina {docsify-ignore-all}
 
 Golosina is a simple web MVC framework built for Go. Why? Most web developers are used to work with MVC frameworks like `Laravel`, `Ruby on Rails`, `Django`, etc so this will help them feel more confortable using Go to build their services and APIs.
 
