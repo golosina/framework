@@ -6,13 +6,17 @@ import (
 	"os"
 
 	"github.com/jinzhu/gorm"
+	// We include this package to be able to connect to mysql
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
 
+// Database is our wrapper for the gorm.DB
 type Database struct {
 	*gorm.DB
 }
 
+// NewDatabase creates a new database and gives us
+// the connected database pointer for queries
 func NewDatabase() *Database {
 
 	dbConnString := fmt.Sprintf(

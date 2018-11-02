@@ -5,8 +5,7 @@ import (
 	"github.com/eaperezc/golosina/models"
 )
 
-type ApplicationController struct {
-}
+type ApplicationController struct{}
 
 type ApplicationResponse struct {
 	Success      bool                  `json:"success"`
