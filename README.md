@@ -1,6 +1,6 @@
 # Golosina
 
-Simple web MVC framework build on go.
+Simple web MVC framework built on go.
 
 # Initialization
 
