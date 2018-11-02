@@ -2,7 +2,7 @@
 
 Here I'll try to explain all the elements that will need to be configured to start working with the framework.
 
-## Instalation 
+## Instalation
 
 The most important part of the installation of the framework is to have all the `GOPATH` and `GOROOT` defined. Usually I don't think too much on what I have to do here, I just follow this awesome guide.
 

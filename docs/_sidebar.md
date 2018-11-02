@@ -4,3 +4,4 @@
 * [Controllers](controllers.md)
 * [Models](models.md)
 * [Context](context.md)
+* [Configuration](configuration.md)

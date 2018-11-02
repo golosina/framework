@@ -14,6 +14,8 @@ type ApplicationResponse struct {
 	Message      string                `json:"message,omitempty"`
 }
 
+// Index will return a list of all the resource
+// Route: GET /applications
 func (c *ApplicationController) Index(ctx *framework.Context) {
 	var applications []*models.Application
 	ctx.Database.Debug().Find(&applications)
@@ -24,6 +26,8 @@ func (c *ApplicationController) Index(ctx *framework.Context) {
 	})
 }
 
+// Show the resource by id
+// Route: GET /applications/{id}
 func (c *ApplicationController) Show(ctx *framework.Context) {
 
 	params, valid := ctx.Request.Validate(map[string]string{
@@ -45,6 +49,8 @@ func (c *ApplicationController) Show(ctx *framework.Context) {
 	ctx.Response.JSON(&ApplicationResponse{Success: true, Application: &application})
 }
 
+// Create will add a new resouce
+// Route: POST /applications
 func (c *ApplicationController) Create(ctx *framework.Context) {
 
 	params, valid := ctx.Request.Validate(map[string]string{
@@ -64,6 +70,8 @@ func (c *ApplicationController) Create(ctx *framework.Context) {
 	ctx.Response.JSON(&ApplicationResponse{Success: true, Application: &application})
 }
 
+// Update will change the info of the resource
+// Route: PUT /applications/{id}
 func (c *ApplicationController) Update(ctx *framework.Context) {
 
 	params, valid := ctx.Request.Validate(map[string]string{
@@ -88,6 +96,8 @@ func (c *ApplicationController) Update(ctx *framework.Context) {
 	ctx.Response.JSON(&ApplicationResponse{Success: true, Application: &application})
 }
 
+// Delete will remove the resouce
+// Route: DELETE /applications/{id}
 func (c *ApplicationController) Delete(ctx *framework.Context) {
 	params, valid := ctx.Request.Validate(map[string]string{
 		"id": "required",
