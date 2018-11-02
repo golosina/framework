@@ -37,3 +37,5 @@ The project folders are a little bit different from the one we are used to but n
     * Internal framework package with wrappers to other libraries to make your life easy. Most of the cases you don't need to worry what happens here but maybe you'll want to customize the internal structure to fit your needs
 * server.go
     * This is the `main` file for the project. We will run `go run server.go` to start our app
+
+!> You'll not see the `.env` file listed but make sure you create it and have all the configurations up to date
