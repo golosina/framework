@@ -34,6 +34,6 @@ It's pretty common to want to group routes under the same prefixed url when we a
 ```go
 	app.Router.Group("/api", func(r *framework.Router) {
 		c := &controllers.UserController{}
-		r.Get("/rsers", c.Index)
+		r.Get("/users", c.Index)
     })
 ```
