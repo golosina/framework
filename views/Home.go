@@ -39,8 +39,8 @@ func (v *HomeView) Init(ctx *framework.Context) {
 func (v *HomeView) Render() (*template.Template, error) {
 
 	// prepare layout and template paths
-	lp := path.Join("templates/layout", v.Layout+".html")
-	fp := path.Join("templates", v.Template+".html")
+	lp := path.Join("views/templates/layout", v.Layout+".html")
+	fp := path.Join("views/templates", v.Template+".html")
 
 	info, err := os.Stat(fp)
 	if err != nil {

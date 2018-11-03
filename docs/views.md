@@ -105,7 +105,7 @@ func (v *HomeView) Render() (*template.Template, error) {
 
 On the templates folder you will have to add the layout and the template files. In this case I'm using files with the html format.
 
-Let's begin with the layout (inside `templates/layout`) called `app.html`:
+Let's begin with the layout (inside `views/templates/layout`) called `app.html`:
 
 ```html
 {{define "app"}}
@@ -123,7 +123,7 @@ Let's begin with the layout (inside `templates/layout`) called `app.html`:
 {{end}}
 ```
 
-Ant now lets create in the `templates` folder a file called `home.html` with the following content:
+Ant now lets create in the `view/templates` folder a file called `home.html` with the following content:
 
 
 ```html
