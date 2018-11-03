@@ -3,10 +3,15 @@ package controllers
 import (
 	"github.com/eaperezc/golosina/framework"
 	"github.com/eaperezc/golosina/models"
+	"github.com/eaperezc/golosina/views"
 )
 
+// ApplicationController definition for the controller
 type ApplicationController struct{}
 
+// ApplicationResponse has the structure we will respond from
+// this controller. Message will be used to send error
+// string when something bad happens
 type ApplicationResponse struct {
 	Success      bool                  `json:"success"`
 	Application  *models.Application   `json:"application,omitempty"`
@@ -117,7 +122,13 @@ func (c *ApplicationController) Delete(ctx *framework.Context) {
 	}
 
 	ctx.Database.Delete(&application)
-
 	ctx.Response.JSON(&ApplicationResponse{Success: true})
+}
 
+func (c *ApplicationController) Test(ctx *framework.Context) {
+
+	v := &views.HomeView{}
+	v.Init(ctx)
+
+	ctx.Response.View(v)
 }

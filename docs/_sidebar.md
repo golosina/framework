@@ -3,5 +3,6 @@
 * [Routing](routing.md)
 * [Controllers](controllers.md)
 * [Models](models.md)
+* [Views](views.md)
 * [Context](context.md)
 * [Configuration](configuration.md)
