@@ -9,17 +9,20 @@ import (
 	"github.com/eaperezc/golosina/framework"
 )
 
+// HomeView has view definition
 type HomeView struct {
 	Layout   string
 	Template string
 	Data     interface{}
 }
 
+// HomeViewData contains the data for this view
 type HomeViewData struct {
 	Hello string
 	World string
 }
 
+// Init will prepare the data for the view
 func (v *HomeView) Init(ctx *framework.Context) {
 
 	v.Layout = "app"
@@ -31,6 +34,8 @@ func (v *HomeView) Init(ctx *framework.Context) {
 	}
 }
 
+// Render will take care of parsing the template
+// so we can render it on our Response
 func (v *HomeView) Render() (*template.Template, error) {
 
 	// prepare layout and template paths
@@ -55,10 +60,12 @@ func (v *HomeView) Render() (*template.Template, error) {
 
 }
 
+// GetLayout is a getter for the view Layout
 func (v *HomeView) GetLayout() string {
 	return v.Layout
 }
 
+// GetData is a getter for the view Data
 func (v *HomeView) GetData() interface{} {
 	return v.Data
 }

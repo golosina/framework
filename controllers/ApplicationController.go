@@ -125,6 +125,7 @@ func (c *ApplicationController) Delete(ctx *framework.Context) {
 	ctx.Response.JSON(&ApplicationResponse{Success: true})
 }
 
+// Test will render a home view
 func (c *ApplicationController) Test(ctx *framework.Context) {
 
 	v := &views.HomeView{}
