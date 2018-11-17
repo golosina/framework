@@ -17,6 +17,8 @@ git clone git@github.com:eaperezc/golosina.git
 
 With that you'll have the starting project ready to be modified.
 
+
+
 ## Configuration
 
 Since I wanted to mimic closely what Laravel is doing you can find a `.env.example` file in the project. Create your own as a copy of it and update the values inside to match you're desired configuration.
@@ -24,6 +26,16 @@ Since I wanted to mimic closely what Laravel is doing you can find a `.env.examp
 ```bash
 cp .env.example .env
 ```
+
+## Start Server
+
+We added a simple script to initialize the server. Just run this:
+
+```bash
+./golosina serve
+```
+
+That's it. You should be able to go to `localhost:8000/test` and see something.
 
 ## Directory Structure
 

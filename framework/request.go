@@ -2,7 +2,6 @@ package framework
 
 import (
 	"encoding/json"
-	"log"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -76,9 +75,10 @@ func (req *Request) Validate(rules map[string]string) (map[string]interface{}, b
 		switch rule {
 		case "required":
 			if p[column] == "" {
-				log.Println(p[column])
 				valid = false
 			}
+		case "boolean":
+			p[column], valid = p[column].(bool)
 		}
 	}
 	return p, valid

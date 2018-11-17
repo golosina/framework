@@ -6,3 +6,4 @@
 * [Models](models.md)
 * [Views](views.md)
 * [Context](context.md)
+* [Commands (CLI)](cmd.md)
