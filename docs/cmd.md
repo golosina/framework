@@ -26,7 +26,7 @@ This will start the web server so you can begin listening for requests. The way 
 ```bash
 ./golosina serve
 ```
-!> If you delete the file located in `cmd/serve` this will start working. 
+!> If you delete the file located in `cmd/serve` this will stop working. 
 
 ### Refresh Cmd
 
@@ -35,4 +35,4 @@ This will rebuild the golosina cmd tool. Adding or removing whatever you have on
 ```bash
 ./golosina refresh
 ```
-!> If you delete the file located in `cmd/refresh` this will start working. 
+!> If you delete the file located in `cmd/refresh` this will stop working. 
