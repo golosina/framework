@@ -35,6 +35,9 @@ We added a simple script to initialize the server. Just run this:
 ./golosina serve
 ```
 
+?> If you don't have the `golosina` file in your folder please run `go build -o golosina`.
+
+
 That's it. You should be able to go to `localhost:8000/test` and see something.
 
 ## Directory Structure
