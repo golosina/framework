@@ -76,7 +76,7 @@ func (c *ExampleController) Index(ctx *framework.Context) {
 To simplify parameter validations we have a function on the Request where you can define the validation rules for your parameters. Here's an example of how to use it:
 
 ```go
-func (c *ApplicationController) Update(ctx *framework.Context) {
+func (c *ExampleController) Update(ctx *framework.Context) {
 
 	params, valid := ctx.Request.Validate(map[string]string{
 		"id":   "required",
@@ -103,6 +103,8 @@ A Response is a wrapper for the internal `http.ResponseWriter` so we have access
 
 ### Strings
 
+Sometimes we just want to print a simple strint to the response. We can do it this way:
+
 ```go
 func (c *ExampleController) Index(ctx *framework.Context) {
     ctx.Response.String("This will be written to the response")
@@ -111,8 +113,10 @@ func (c *ExampleController) Index(ctx *framework.Context) {
 
 ### JSON
 
+For APIs we want to be able to structs into JSON strings. We have a handy function for that as well.
+
 ```go
-type ApplicationResponse struct {
+type ExampleResponse struct {
 	Success    bool    `json:"success"`
 	Data       *Data   `json:"data"`
 }
@@ -131,6 +135,19 @@ This will return a json response like this:
     "data": "<your data>"
 }
 ```
+
+### Render Templates
+
+If we want to serve full HTML pages we usually want to have templates files. We can easily render those files using the following function:
+
+```go
+func (c *HomeController) Index(ctx *framework.Context) {
+	ctx.Response.Render("views/home.html", nil)
+}
+```
+
+To learn more about views, check the [Views](views.md) docs.
+
 
 ## Database
 

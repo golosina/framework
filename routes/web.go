@@ -9,8 +9,6 @@ import (
 // that we use to show website views
 func WebRoutes(r *framework.Router) {
 
-	r.Resource("/applications", &controllers.ApplicationController{})
-
-	c := &controllers.ApplicationController{}
-	r.Get("/test", c.Test)
+	c := &controllers.HomeController{}
+	r.Get("/", c.Index)
 }

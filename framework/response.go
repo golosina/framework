@@ -2,7 +2,10 @@ package framework
 
 import (
 	"encoding/json"
+	"html/template"
+	"log"
 	"net/http"
+	"os"
 )
 
 // Response is a wrapper for the http.ResponseWriter
@@ -27,15 +30,27 @@ func (res *Response) JSON(el interface{}) {
 	res.Write(js)
 }
 
-// View will use a template to render a view into the
-// Response, it requires the layout and the template
-func (res *Response) View(view IView) {
+// Render will render a template into the Response, it requires the
+// string path of the template inside the views folder and the
+// parameters we want to sent to it
+func (res *Response) Render(fp string, params interface{}) {
 
-	templates, err := view.Render()
+	info, err := os.Stat(fp)
 	if err != nil {
-		http.Error(res, "500 Internal Server Error", 500)
-		return
+		if os.IsNotExist(err) {
+			log.Println("Template path issue")
+		}
 	}
 
-	templates.ExecuteTemplate(res, view.GetLayout(), view.GetData())
+	// Log if the file is a directory
+	if info.IsDir() {
+		log.Println("Template path is a directory")
+	}
+
+	t, err := template.ParseFiles(fp) // Parse template file.
+	if err != nil {
+		log.Println(err.Error())
+	}
+
+	t.Execute(res, params) // merge.
 }

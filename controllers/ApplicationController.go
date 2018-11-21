@@ -3,7 +3,6 @@ package controllers
 import (
 	"github.com/eaperezc/golosina/framework"
 	"github.com/eaperezc/golosina/models"
-	"github.com/eaperezc/golosina/views"
 )
 
 // ApplicationController definition for the controller
@@ -123,13 +122,4 @@ func (c *ApplicationController) Delete(ctx *framework.Context) {
 
 	ctx.Database.Delete(&application)
 	ctx.Response.JSON(&ApplicationResponse{Success: true})
-}
-
-// Test will render a home view
-func (c *ApplicationController) Test(ctx *framework.Context) {
-
-	v := &views.HomeView{}
-	v.Init(ctx)
-
-	ctx.Response.View(v)
 }
