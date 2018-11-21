@@ -17,6 +17,15 @@ git clone git@github.com:eaperezc/golosina.git
 
 With that you'll have the starting project ready to be modified.
 
+## Installing dependencies
+
+Ruby on Rails has bundler, node has npm, php has compoer... Well go has `dep`. Here's the official documentation on how to use [Dep](https://golang.github.io/dep/docs/daily-dep.html).
+
+```bash
+dep ensure
+```
+
+If you don't have `dep` installed go to the official docs [Installing Dep](https://golang.github.io/dep/docs/installation.html).
 
 
 ## Configuration
@@ -38,7 +47,7 @@ We added a simple script to initialize the server. Just run this:
 ?> If you don't have the `golosina` file in your folder please run `go build -o golosina`.
 
 
-That's it. You should be able to go to `localhost:8000/test` and see something.
+That's it. You should be able to go to `localhost:8000` and see the homepage.
 
 ## Directory Structure
 
@@ -63,3 +72,5 @@ The project folders are a little bit different from the one we are used to but n
     * This is the `main` file for the project. We will run `go run server.go` to start our app
 
 !> You'll not see the `.env` file listed but make sure you create it and have all the configurations up to date
+
+
