@@ -1,8 +1,8 @@
 package routes
 
 import (
-	"github.com/eaperezc/golosina/controllers"
-	"github.com/eaperezc/golosina/framework"
+	"github.com/golosina/framework/controllers"
+	"github.com/golosina/framework/framework"
 )
 
 // WebRoutes will contain the list of all routes

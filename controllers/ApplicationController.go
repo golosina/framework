@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	"github.com/eaperezc/golosina/framework"
-	"github.com/eaperezc/golosina/models"
+	"github.com/golosina/framework/framework"
+	"github.com/golosina/framework/models"
 )
 
 // ApplicationController definition for the controller

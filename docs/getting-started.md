@@ -12,7 +12,7 @@ After you're ready with that, move to your project folder and simpli clone the r
 
 ```bash
 cd /path/to/your/project
-git clone git@github.com:eaperezc/golosina.git
+git clone git@github.com:golosina/framework.git
 ```
 
 With that you'll have the starting project ready to be modified.

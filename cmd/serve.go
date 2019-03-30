@@ -1,8 +1,8 @@
 package cmd
 
 import (
-	"github.com/eaperezc/golosina/framework"
-	"github.com/eaperezc/golosina/routes"
+	"github.com/golosina/framework/framework"
+	"github.com/golosina/framework/routes"
 	"github.com/spf13/cobra"
 )
 

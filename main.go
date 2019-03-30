@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/eaperezc/golosina/cmd"
+	"github.com/golosina/framework/cmd"
 )
 
 func main() {

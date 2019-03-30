@@ -1,6 +1,6 @@
 package models
 
-import "github.com/eaperezc/golosina/framework"
+import "github.com/golosina/framework/framework"
 
 type Application struct {
 	framework.Model

@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"github.com/eaperezc/golosina/framework"
+	"github.com/golosina/framework/framework"
 )
 
 // HomeController definition for the controller
